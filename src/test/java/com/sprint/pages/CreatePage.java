@@ -12,26 +12,38 @@ public class CreatePage {
     }
 
 
+    @FindBy(xpath = "//button[@accesskey=\"c\"]")
+    public WebElement createButton;
+
     @FindBy(xpath = "//div[@class=\"o_input_dropdown\"]//input")
     public WebElement modelDropdown;
 
     @FindBy(xpath = "//a[.=\"Create and Edit...\"]")
     public WebElement createAndEdit;
 
-    @FindBy(xpath = "//h1/input")
+    @FindBy(xpath = "//input[@placeholder=\"e.g. Model S\"]")
     public WebElement vehicleNameAndModelBox;
 
-    @FindBy(xpath = "//div[@name=\"model_id\"]//div[@class=\"o_input_dropdown\"]//input")
+    @FindBy(xpath = "//h2//div//div/input")
     public WebElement vehicleBrandBox;
 
-    @FindBy(xpath = "//button[@class=\"btn btn-sm btn-primary\"]")
+    @FindBy(xpath = "//span[.=\"Save\"]")
     public WebElement saveButton;
 
-    @FindBy(xpath = "")
-    public WebElement LicensePlateBox;
+    @FindBy(xpath = "//button[@class=\"btn btn-sm btn-primary\"]//span[.=\"Create\"]")
+    public WebElement confirm;
+
+    @FindBy(xpath = "//button[@class=\"close\"][1]")
+    public WebElement close;
+
+    @FindBy(xpath = "//h2/input")
+    public WebElement licensePlateBox;
+
+
 
     @FindBy(xpath = "")
     public WebElement generalSaveButton;
+
 
 
 
