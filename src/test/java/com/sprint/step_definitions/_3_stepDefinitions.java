@@ -1,0 +1,143 @@
+package com.sprint.step_definitions;
+
+import com.github.javafaker.Faker;
+import com.sprint.pages.CreatePage;
+import com.sprint.pages.HomePage;
+import com.sprint.pages.LoginPage;
+import com.sprint.utilities.BrowserUtils;
+import com.sprint.utilities.ConfigurationReader;
+import com.sprint.utilities.Driver;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import net.bytebuddy.asm.Advice;
+import net.bytebuddy.implementation.bytecode.Throw;
+import org.junit.Assert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import javax.swing.*;
+
+public class _3_stepDefinitions {
+
+
+    LoginPage loginPage = new LoginPage();
+    HomePage homePage = new HomePage();
+    CreatePage createPage = new CreatePage();
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+    Faker faker = new Faker();
+    String vehicleMake = faker.bothify("??xxx????");
+    String vehicleModel = faker.bothify("Toyota?x?x");
+
+
+    @Given("User is logged in as PosManager")
+    public void user_is_logged_in_as_pos_manager() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("urlLink"));
+        loginPage.userName.sendKeys(ConfigurationReader.getProperty("username"));
+        loginPage.password.sendKeys(ConfigurationReader.getProperty("password"));
+        loginPage.loginButton.click();
+        wait.until(ExpectedConditions.titleContains("#Inbox"));
+        homePage.moreElement.click();
+        homePage.fleetOption.click();
+    }
+
+    @Given("User is on Vehicles page")
+    public void user_is_on_vehicles_page() {
+        Assert.assertTrue(homePage.verifyCreatePage.isDisplayed());
+    }
+
+    @When("User clicks on create button")
+    public void userClicksOnCreateButton() {
+        createPage.createButton.click();
+    }
+
+    @When("User clicks on Model field")
+    public void user_clicks_on_model_field() {
+        // wait.until(ExpectedConditions.invisibilityOf(createPage.modelDropdown));
+        createPage.modelDropdown.click();
+    }
+
+    @When("User clicks on create and edit option")
+    public void user_clicks_on_create_and_edit_option() {
+        createPage.createAndEdit.click();
+    }
+
+    @And("User enters vehicle model")
+    public void userEntersVehicleModel() {
+        BrowserUtils.waitFor(2);
+        createPage.vehicleNameAndModelBox.sendKeys(vehicleModel);
+    }
+
+    @And("User enters vehicle make")
+    public void userEntersVehicleMake() {
+        BrowserUtils.waitFor(2);
+        createPage.vehicleBrandBox.sendKeys(vehicleMake);
+    }
+
+    @When("User click save button")
+    public void user_click_save_button() {
+        createPage.saveButton.click();
+    }
+
+    @And("User clicks confirms new creation")
+    public void userConfirmsNewCreation() throws InterruptedException {
+        createPage.createButtonInsideCreate.click();
+        createPage.saveButton.click();
+        BrowserUtils.sleep(1);
+        createPage.close.click();
+    }
+
+    @And("User Enters license plate no")
+    public void userEntersLicensePlateNo() {
+        wait.until(ExpectedConditions.visibilityOf(createPage.licensePlateBox));
+        createPage.licensePlateBox.sendKeys(faker.bothify("###???"));
+    }
+
+    @Then("New created vehicles details appear")
+    public void new_created_vehicles_details_appear() {
+        wait.until(ExpectedConditions.titleContains(vehicleModel));
+        Assert.assertTrue(Driver.getDriver().getTitle().contains(vehicleModel));
+
+    }
+
+    @When("Clicks on vehicles option")
+    public void clicks_on_vehicles_option() {
+       // wait.until(ExpectedConditions.visibilityOf(createPage.close));
+       // createPage.close.click();
+        wait.until(ExpectedConditions.titleContains(vehicleModel));
+        createPage.vehicleOption.click();
+    }
+
+    @And("User click Save button")
+    public void userClickSaveButton() {
+        createPage.lasSaveButton.click();
+        wait.until(ExpectedConditions.visibilityOf(createPage.licensePlateBox));
+    }
+
+    @When("Enters new created vehicle name and model on search")
+    public void enters_new_created_vehicle_name_and_model_on_search() {
+
+        BrowserUtils.sleep(2);
+        Assert.assertTrue(createPage.searchBar.isDisplayed());
+        //createPage.searchBar.click();
+        createPage.searchBar.sendKeys(vehicleModel + Keys.ENTER);
+       // createPage.searchBar.sendKeys("asdasdasd");
+    }
+
+    @Then("User can see new created vehicle")
+    public void userCanSeeNewCreatedVehicle() {
+
+        Assert.assertTrue(createPage.newElementVerification.isDisplayed());
+    }
+
+    @Then("User is not able to create a new vehicle")
+    public void userIsNotAbleToCreateANewVehicle() {
+        Assert.assertTrue(Driver.getDriver().getTitle().contains("New"));
+
+    }
+
+
+}

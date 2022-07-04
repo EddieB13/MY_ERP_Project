@@ -1,6 +1,7 @@
 package com.sprint.pages;
 
 import com.sprint.utilities.Driver;
+import io.cucumber.java.en.And;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -31,7 +32,7 @@ public class CreatePage {
     public WebElement saveButton;
 
     @FindBy(xpath = "//button[@class=\"btn btn-sm btn-primary\"]//span[.=\"Create\"]")
-    public WebElement confirm;
+    public WebElement createButtonInsideCreate;
 
     @FindBy(xpath = "//button[@class=\"close\"][1]")
     public WebElement close;
@@ -39,12 +40,26 @@ public class CreatePage {
     @FindBy(xpath = "//h2/input")
     public WebElement licensePlateBox;
 
+    @FindBy(xpath = "//a[@data-menu=\"139\"]/span")
+    public WebElement vehicleOption;
+
+    @FindBy(xpath = "//button[@accesskey=\"s\"]")
+    public WebElement lasSaveButton;
+
+    @FindBy(xpath = "/html/body/div[1]/div[2]/div[1]/div[1]/div/input")
+    public WebElement searchBar;
+
+    @FindBy(css = "a[data-menu='146'] span")
+    public WebElement oemenutextSpan;
+
+    @FindBy(css = "a[data-menu='147']")
+    public WebElement oemenuleafLink;
 
 
-    @FindBy(xpath = "")
-    public WebElement generalSaveButton;
+    @FindBy(xpath = "//div//strong[@class=\"o_kanban_record_title\"]")
+    public WebElement newElementVerification;
 
-
-
+    @FindBy(xpath = "//button[@accesskey=\"a\"]")
+    public WebElement newVehicleConfirmation;
 
 }

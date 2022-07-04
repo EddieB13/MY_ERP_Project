@@ -1,0 +1,57 @@
+@CNTR-343
+Feature: Inventory Functionality
+
+  As a PosManager, I should be able to check/edit the Inventory of the company.
+  So that I can list all products in the company, I can add new products to inventory,
+  I can select the Product type, I can set prices (cost & sales)
+
+
+  Background: POs manager enters on centrilli web app
+    Given  User is logged in as PosManager
+    And    User is on Vehicles page
+
+  @wip
+  @CNTR-342
+  Scenario: Verify that the user can create a product.
+    When  User clicks on create button
+    And   User clicks on Model field
+    And   User clicks on create and edit option
+    And   User enters vehicle model
+    And   User enters vehicle make
+    And   User click save button
+    And   User clicks confirms new creation
+    And   User Enters license plate no
+    And   User click Save button
+    Then  New created vehicles details appear
+
+
+  @CNTR-352
+  Scenario: Verify that a new product can be found in the search.
+    When  User clicks on create button
+    And   User clicks on Model field
+    And   User clicks on create and edit option
+    And   User enters vehicle model
+    And   User enters vehicle make
+    And   User click save button
+    And   User clicks confirms new creation
+    And   User Enters license plate no
+    And   User click Save button
+    And   Clicks on vehicles option
+    And   Enters new created vehicle name and model on search
+    Then  User can see new created vehicle
+
+  @CNTR-353
+  Scenario: PosManager tries creating new vehicle without entering license plate
+    When  User clicks on create button
+    And   User clicks on Model field
+    And   User clicks on create and edit option
+    And   User enters vehicle model
+    And   User enters vehicle make
+    And   User click save button
+    And   User clicks confirms new creation
+    And   User click Save button
+    Then  User is not able to create a new vehicle
+
+
+
+
