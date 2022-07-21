@@ -20,4 +20,43 @@ public class ContactsPage {
     @FindBy(xpath = "//input[@name=\"name\"]")
     public WebElement enterName;
 
+    @FindBy(xpath = "//div[@class=\"o_cp_buttons\"]/div/button[@accesskey=\"c\"]")
+    public WebElement createContactbutton;
+
+    @FindBy(xpath = "//td/input[@name=\"name\"]")
+    public WebElement enterName2;
+
+    @FindBy(xpath = "//div[@class=\"modal-footer\"]/button[.=\"Save  & Close\"]")
+    public WebElement saveNcloseButton;
+
+    @FindBy(xpath = "//div[@class=\"o_form_buttons_edit\"]/button[@class=\"btn btn-primary btn-sm o_form_button_save\"]")
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//button[@class=\"btn btn-sm btn-default o_form_button_cancel\"]/span[.=\"Discard\"]")
+    public WebElement discardButton;
+
+
+    @FindBy(xpath = "//div/div[@class=\"o_kanban_view o_res_partner_kanban o_kanban_ungrouped\"]")
+    public WebElement kanbanVerification;
+
+    @FindBy(xpath = "//button[@accesskey=\"l\"]")
+    public WebElement listViewButton;
+
+    @FindBy(xpath = "//button[@accesskey=\"k\"]")
+    public WebElement kanbanButton;
+
+    @FindBy(xpath = "//table/thead/tr/th[@class=\"o_column_sortable\" and .=\"Name\"]")
+    public WebElement listViewVerification;
+
+
+    @FindBy(xpath = "//div[@class=\"o_form_buttons_edit\"]/button[@accesskey=\"j\"]")
+    public WebElement discardButton2;
+
+    @FindBy(xpath = "//button[@class=\"btn btn-sm btn-primary\"]/span")
+    public WebElement okButton;
+
+    @FindBy(xpath = "//div[@class=\"o_searchview\"]")
+    public WebElement searchBar;
+
+
 }

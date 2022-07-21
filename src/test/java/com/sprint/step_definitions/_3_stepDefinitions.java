@@ -44,6 +44,7 @@ public class _3_stepDefinitions {
         homePage.fleetOption.click();
     }
 
+
     @Given("User is on Vehicles page")
     public void user_is_on_vehicles_page() {
         Assert.assertTrue(homePage.verifyCreatePage.isDisplayed());

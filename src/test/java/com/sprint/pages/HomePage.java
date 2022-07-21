@@ -25,7 +25,8 @@ public class HomePage {
     @FindBy(xpath = "//div//div//div//button[@accesskey=\"c\"]")
     public WebElement verifyCreatePage;
 
-
+    @FindBy(xpath = "//a[@data-menu=\"68\"]/span")
+    public WebElement contactsElement;
 
 
 
