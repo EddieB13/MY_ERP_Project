@@ -46,8 +46,11 @@ public class CreatePage {
     @FindBy(xpath = "//button[@accesskey=\"s\"]")
     public WebElement lasSaveButton;
 
-    @FindBy(xpath = "/html/body/div[1]/div[2]/div[1]/div[1]/div/input")
+    @FindBy(xpath = "//input[@class='o_searchview_input']")
     public WebElement searchBar;
+    //    /html/body/div[1]/div[2]/div[1]/div[1]/div/input                      e para
+    //   //div[@class='o_control_panel']//input[@class='o_searchview_input']    e dijarit
+
 
     @FindBy(css = "a[data-menu='146'] span")
     public WebElement oemenutextSpan;
@@ -61,5 +64,8 @@ public class CreatePage {
 
     @FindBy(xpath = "//button[@accesskey=\"a\"]")
     public WebElement newVehicleConfirmation;
+
+    @FindBy(css = "a[data-menu='147'] span")
+    public WebElement oemenutextSpan2;
 
 }

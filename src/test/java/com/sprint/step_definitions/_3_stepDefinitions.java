@@ -47,18 +47,12 @@ public class _3_stepDefinitions {
     @Given("User is on Vehicles page")
     public void user_is_on_vehicles_page() {
         Assert.assertTrue(homePage.verifyCreatePage.isDisplayed());
-    }
-
-    @When("User clicks on create button")
-    public void userClicksOnCreateButton() {
         createPage.createButton.click();
-    }
-
-    @When("User clicks on Model field")
-    public void user_clicks_on_model_field() {
-        // wait.until(ExpectedConditions.invisibilityOf(createPage.modelDropdown));
         createPage.modelDropdown.click();
     }
+
+
+
 
     @When("User clicks on create and edit option")
     public void user_clicks_on_create_and_edit_option() {
@@ -86,7 +80,7 @@ public class _3_stepDefinitions {
     public void userConfirmsNewCreation() throws InterruptedException {
         createPage.createButtonInsideCreate.click();
         createPage.saveButton.click();
-        BrowserUtils.sleep(1);
+        BrowserUtils.sleep(3);
         createPage.close.click();
     }
 
@@ -96,7 +90,7 @@ public class _3_stepDefinitions {
         createPage.licensePlateBox.sendKeys(faker.bothify("###???"));
     }
 
-    @Then("New created vehicles details appear")
+    @Then("Verify New created vehicles details appear")
     public void new_created_vehicles_details_appear() {
         wait.until(ExpectedConditions.titleContains(vehicleModel));
         Assert.assertTrue(Driver.getDriver().getTitle().contains(vehicleModel));
@@ -105,6 +99,8 @@ public class _3_stepDefinitions {
 
     @When("Clicks on vehicles option")
     public void clicks_on_vehicles_option() {
+
+
        // wait.until(ExpectedConditions.visibilityOf(createPage.close));
        // createPage.close.click();
         wait.until(ExpectedConditions.titleContains(vehicleModel));
@@ -119,21 +115,18 @@ public class _3_stepDefinitions {
 
     @When("Enters new created vehicle name and model on search")
     public void enters_new_created_vehicle_name_and_model_on_search() {
-
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(4);
         Assert.assertTrue(createPage.searchBar.isDisplayed());
-        //createPage.searchBar.click();
         createPage.searchBar.sendKeys(vehicleModel + Keys.ENTER);
-       // createPage.searchBar.sendKeys("asdasdasd");
     }
 
-    @Then("User can see new created vehicle")
+    @Then("Verify User can see new created vehicle")
     public void userCanSeeNewCreatedVehicle() {
 
         Assert.assertTrue(createPage.newElementVerification.isDisplayed());
     }
 
-    @Then("User is not able to create a new vehicle")
+    @Then("Verify User is not able to create a new vehicle")
     public void userIsNotAbleToCreateANewVehicle() {
         Assert.assertTrue(Driver.getDriver().getTitle().contains("New"));
 
