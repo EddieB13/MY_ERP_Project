@@ -20,23 +20,25 @@ Feature: Create new CONTACTS
     And    User click on list view
     Then   Verify that list view is displayed
 
-  @wip
-   Scenario: Verify that the user can discard changes
-     When  User clicks Create button
-     And   Enters name and contact name on according fields
-     And   User clicks discard button
+
+  Scenario: Verify that the user can discard changes
+    When  User clicks Create button
+    And   Enters name and contact name on according fields
+    And   User clicks discard button
     Then   Verify changes are not saved
 
 
- ## Scenario: Verify that the user can edit contact
- ## When
- ## And
- ## And
- ## Then
+  Scenario: Verify that the user can edit contact
+    When    User clicks on a old contact
+    And     Clicks edit button
+    And     Enters name and contact name on according fields
+    And     Clicks save button
+    Then    Verify that new contact is created
 
-
- ## Scenario: Verify that the user can delete contact
- ## When
- ## And
- ## And
- ## Then
+  @wip
+  Scenario: Verify that the user can delete contact
+    When  User clicks Create button
+    And   Enters name and contact name on according fields
+    And   Clicks save button
+    And   User clicks Action button and deletes the contact
+    Then  Verify that contact is deleted

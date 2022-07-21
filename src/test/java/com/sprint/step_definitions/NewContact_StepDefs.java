@@ -14,6 +14,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -93,7 +94,6 @@ public class NewContact_StepDefs {
 
     @And("User clicks discard button")
     public void userClicksDiscardButton() {
-        BrowserUtils.waitFor(3);
         contactsPage.discardButton2.click();
         contactsPage.okButton.click();
     }
@@ -102,9 +102,32 @@ public class NewContact_StepDefs {
     @Then("Verify changes are not saved")
     public void verifyChangesAreNotSaved() {
         BrowserUtils.waitFor(2);
-        contactsPage.searchBar.sendKeys(customerName + Keys.ENTER);
+        Assert.assertTrue(Driver.getDriver().getTitle().contains("Contacts"));
+    }
 
 
+    @When("User clicks on a old contact")
+    public void userClicksOnAOldContact() {
+        contactsPage.oldContact.click();
+    }
 
+    @And("Clicks edit button")
+    public void clicksEditButton() {
+        contactsPage.editButton.click();
+
+    }
+
+    @And("User clicks Action button and deletes the contact")
+    public void userClicksActionButtonAndDeletesTheContact() {
+        contactsPage.actionButton.click();
+        contactsPage.deleteButton.click();
+        contactsPage.confirmDeletion.click();
+
+    }
+
+    @Then("Verify that contact is deleted")
+    public void verifyThatContactIsDeleted() {
+        BrowserUtils.waitFor(2);
+        Assert.assertFalse(Driver.getDriver().getTitle().contains(customerName));
     }
 }

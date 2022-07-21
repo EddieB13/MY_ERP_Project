@@ -7,10 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ContactsPage {
 
-    public ContactsPage(){
+    public ContactsPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
-
 
 
     @FindBy(xpath = "//div/button[@accesskey=\"c\"]")
@@ -55,8 +54,25 @@ public class ContactsPage {
     @FindBy(xpath = "//button[@class=\"btn btn-sm btn-primary\"]/span")
     public WebElement okButton;
 
-    @FindBy(xpath = "//div[@class=\"o_searchview\"]")
+    @FindBy(xpath = "//div[@class=\"o_cp_searchview\"]/div[@class=\"o_searchview\"]")
     public WebElement searchBar;
+
+
+    @FindBy(xpath = "//div/div[@class=\"o_kanban_view o_res_partner_kanban o_kanban_ungrouped\"]/div")
+    public WebElement oldContact;
+
+    @FindBy(xpath = "//div[@class=\"o_form_buttons_view\"]/button[@accesskey=\"a\"]")
+    public WebElement editButton;
+
+    @FindBy(xpath = "//div[@class=\"btn-group o_dropdown\"][3]/button")
+    public WebElement actionButton;
+
+    @FindBy(xpath = "//ul[@class=\"dropdown-menu\"]//a[@data-index=\"0\" and @ data-section=\"other\"]")
+    public WebElement deleteButton;
+
+    @FindBy(xpath = "//div[@class=\"modal-footer\"]/button[@class=\"btn btn-sm btn-primary\"]")
+    public WebElement confirmDeletion;
+
 
 
 }
