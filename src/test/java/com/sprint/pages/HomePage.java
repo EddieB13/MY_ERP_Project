@@ -15,18 +15,22 @@ public class HomePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+    @FindBy(xpath = "//*[@id=\"menu_more_container\"]/a")
+        public WebElement moreElement;
 
-    @FindBy(xpath = "//li/a[.=\"More \"]/b[@class=\"caret\"]")
-    public WebElement moreElement;
 
-    @FindBy(xpath = "//a[@href=\"/web#menu_id=134&action=\" and @data-menu=\"134\"]")
-    public WebElement fleetOption;
 
-    @FindBy(xpath = "//div//div//div//button[@accesskey=\"c\"]")
-    public WebElement verifyCreatePage;
-
-    @FindBy(xpath = "//a[@data-menu=\"68\"]/span")
-    public WebElement contactsElement;
+//    @FindBy(xpath = "//li/a[.=\"More \"]/b[@class=\"caret\"]")
+//    public WebElement moreElement;
+//
+//    @FindBy(xpath = "//a[@href=\"/web#menu_id=134&action=\" and @data-menu=\"134\"]")
+//    public WebElement fleetOption;
+//
+//    @FindBy(xpath = "//div//div//div//button[@accesskey=\"c\"]")
+//    public WebElement verifyCreatePage;
+//
+//    @FindBy(xpath = "//a[@data-menu=\"68\"]/span")
+//    public WebElement contactsElement;
 
 
 
