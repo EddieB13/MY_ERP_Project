@@ -15,13 +15,13 @@ public class LoginPage {
 
 
 
-    @FindBy(xpath = "//*[@id=\"login\"]")
+    @FindBy(xpath = "email")
     public WebElement userName;
 
-    @FindBy(xpath = "//*[@id=\"password\"]")
+    @FindBy(xpath = "password")
     public WebElement userPassword;
 
-    @FindBy(xpath = "//*[@id=\"wrapwrap\"]/main/div/form/div[3]/button")
+    @FindBy(xpath = "//button[.='Log in']")
     public WebElement loginButton;
 
 
