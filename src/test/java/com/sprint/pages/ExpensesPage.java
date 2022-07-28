@@ -10,9 +10,17 @@ public class ExpensesPage {
     public ExpensesPage(){
 
         PageFactory.initElements(Driver.getDriver(), this);
-
     }
-    @FindBy(xpath = "//*[@id=\"menu_more\"]/li[9]/a/span" )
-    public WebElement expensesButton;
+
+    @FindBy(xpath ="//button[@accesskey=\"c\"]" )
+    public WebElement createButton;
+
+
+    @FindBy(xpath ="//button[@accesskey=\"s\"]" )
+    public WebElement saveButton;
+
+
+    //@FindBy(xpath =" " )
+
 
 }

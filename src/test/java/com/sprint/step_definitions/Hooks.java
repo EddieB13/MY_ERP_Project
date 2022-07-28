@@ -1,5 +1,6 @@
 package com.sprint.step_definitions;
 
+import com.sprint.utilities.BrowserUtils;
 import com.sprint.utilities.Driver;
 import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
@@ -35,10 +36,9 @@ public class Hooks {                    // in this class we can pass pre & post-
             scenario.attach(screenshot, "image/png", scenario.getName());
 
         }
+        BrowserUtils.sleep(5);
 
-        // BrowserUtils.sleep(5);
-
-        //Driver.closeDriver();
+         Driver.closeDriver();
         // System.out.println("======Closing browser using cucumber @After");
         // System.out.println("======Scenario ended, take screenshot if scenario failed");
     }
