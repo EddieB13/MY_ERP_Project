@@ -9,7 +9,6 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-
         plugin = {
                 //"pretty",
                 "json:target/cucumber.json",
@@ -20,13 +19,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/sprint/step_definitions",
         dryRun = false,                               // turns off running step_definitions, just check for missing snippet,  when true= ON, when false = OFF
-        tags = "@wip",
+        tags = "",
         publish = true                                // generate a link to access reports through an auto generated URL in console
 )
-
-
-
-
-
 public class CukesRunner {
 }
