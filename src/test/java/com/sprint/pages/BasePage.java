@@ -12,7 +12,6 @@ public class BasePage {
     }
 
 
-/*
     @FindBy(xpath = "//button[.=\"View all orders\"]")
     public WebElement viewAllOrders;
 
@@ -25,8 +24,7 @@ public class BasePage {
     @FindBy(xpath = "//button[@class=\"button __logout\"]")
     public WebElement logOut;
 
-        //---------------------------------
- */
+
 
 }
 
