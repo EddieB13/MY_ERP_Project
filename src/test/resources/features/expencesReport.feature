@@ -50,7 +50,7 @@ Feature: Create new Expenses Report
 
 
   #  Verify that the "The following fields are invalid  * field name " error message
- #  is displayed when mandatory field left blank
+  #  is displayed when mandatory field left blank
   Scenario: To fill mandatory fields otherwise user should see alert message
     And User clicks "Create" button to register
     And User fills  Expense Report Summary and Employee with invalid data
